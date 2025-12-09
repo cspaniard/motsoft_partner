@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+
+    <!-- ====================================================================================================  -->
+    <!-- Contactos: Form -->
+    <!-- ====================================================================================================  -->
+    <record id="deysanka_view_partner_property_form" model="ir.ui.view">
+        <field name="name">deysanka_res.partner.property.form.inherit</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="account.view_partner_property_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="bank_name" />
+            </xpath>
+
+            <xpath expr="//group[@name='sale']/field[@name='user_id']" position="before">
+                <field name="customer" />
+            </xpath>
+
+            <xpath expr="//group[@name='purchase']/field[@name='property_supplier_payment_term_id']" position="before">
+                <field name="supplier" />
+            </xpath>
+        </field>
+    </record>
+    <!-- ====================================================================================================  -->
+
+    <!-- ====================================================================================================  -->
+    <!-- Contactos: Form (sub-vista) -->
+    <!-- ====================================================================================================  -->
+    <record id="deysanka_l10n_es_partner_view_partner_form" model="ir.ui.view">
+        <field name="name">deysanka_l10n_es_partner.view_partner_form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="l10n_es_partner.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='comercial']" position="after">
+                <field name="alternative_name" string="" placeholder="Nombre Alternativo"/>
+            </xpath>
+
+        </field>
+    </record>
+    <!-- ====================================================================================================  -->
+
+</odoo>
